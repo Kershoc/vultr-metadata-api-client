@@ -1,5 +1,6 @@
 <?php
 /**
+ * Vultr.com Metadata API Client
  * @package VultrMetadata
  * @version 1.0
  * @see https://github.com/kershoc/vultr-metadata-api-client
@@ -7,9 +8,14 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+
+/**
+ * Class VultrMetadata
+ */
 class VultrMetadata
 {
     /**
+     * Api Endpoint
      * @var string
      * @see https://www.vultr.com/metadata/
      */
@@ -17,7 +23,8 @@ class VultrMetadata
 
 
     /**
-     * @return mixed
+     * All Metadata
+     * @return mixed Entire metadata tree converted from APIs JSON response
      * @see https://www.vultr.com/metadata/#v1_json
      */
     public function getAll()
@@ -26,7 +33,8 @@ class VultrMetadata
     }
 
     /**
-     * @return bool|string
+     * All Metadata as JSON
+     * @return bool|string Entire metadata tree as a JSON document.
      * @see https://www.vultr.com/metadata/#v1_json
      */
     public function getAllJson()
@@ -35,7 +43,8 @@ class VultrMetadata
     }
 
     /**
-     * @return bool|string
+     * VM Hostname
+     * @return bool|string Default hostname of the calling VM.
      * @see https://www.vultr.com/metadata/#v1_hostname
      */
     public function getHostname()
@@ -44,7 +53,8 @@ class VultrMetadata
     }
 
     /**
-     * @return bool|string
+     * Instance ID
+     * @return bool|string Instance ID of calling VM.
      * @see https://www.vultr.com/metadata/#v1_instanceid
      */
     public function getInstanceId()
@@ -53,7 +63,8 @@ class VultrMetadata
     }
 
     /**
-     * @return bool|string
+     * Public Keys
+     * @return bool|string Public SSH keys associated with calling VM.
      * @see https://www.vultr.com/metadata/#v1_public_keys
      */
     public function getPublicKeys()
@@ -62,7 +73,8 @@ class VultrMetadata
     }
 
     /**
-     * @return bool|string
+     * Region Code
+     * @return bool|string  Region code of the calling VM.
      * @see https://www.vultr.com/metadata/#v1_region_regioncode
      */
     public function getRegionCode()
@@ -71,9 +83,11 @@ class VultrMetadata
     }
 
     /**
-     * @param int $ipv
-     * @return bool|string
+     * BGP Peer ASN
+     * @param int $ipv IP version. Allowable values: 4 || 6, default 4
+     * @return bool|string BGP ASN of the peer (Vultr).
      * @see https://www.vultr.com/metadata/#v1_bgp_ipv4_peer_asn
+     * @see https://www.vultr.com/metadata/#v1_bgp_ipv6_peer_asn
      */
     public function getBgpPeerAsn(int $ipv = 4)
     {
@@ -82,9 +96,11 @@ class VultrMetadata
     }
 
     /**
-     * @param int $ipv
-     * @return bool|string
+     * BGP Peer Address
+     * @param int $ipv IP version. Allowable values: 4 || 6, default 4
+     * @return bool|string BGP IPv4 address of the calling VM.
      * @see https://www.vultr.com/metadata/#v1_bgp_ipv4_peer_address
+     * @see https://www.vultr.com/metadata/#v1_bgp_ipv6_peer_address
      */
     public function getBgpPeerAddress(int $ipv = 4)
     {
@@ -93,8 +109,9 @@ class VultrMetadata
     }
 
     /**
-     * @param int $ipv
-     * @return bool|string
+     * BGP My ASN
+     * @param int $ipv IP version. Allowable values: 4 || 6, default 4
+     * @return bool|string BGP ASN of the calling VM.
      * @see https://www.vultr.com/metadata/#v1_bgp_ipv4_my_asn
      */
     public function getBgpMyAsn(int $ipv = 4)
@@ -104,8 +121,9 @@ class VultrMetadata
     }
 
     /**
-     * @param int $ipv
-     * @return bool|string
+     * BGP My Address
+     * @param int $ipv IP version. Allowable values: 4 || 6, default 4
+     * @return bool|string BGP IP address of the calling VM.
      * @see https://www.vultr.com/metadata/#v1_bgp_ipv4_my_address
      */
     public function getBgpMyAddress(int $ipv = 4)
@@ -115,7 +133,8 @@ class VultrMetadata
     }
 
     /**
-     * @return array
+     * Network Interfaces
+     * @return array interface ids as ints.
      * @see https://www.vultr.com/metadata/#v1_interfaces
      */
     public function getNics()
@@ -125,9 +144,10 @@ class VultrMetadata
     }
 
     /**
-     * @param int $interfaceid
-     * @param int $ipv
-     * @return array
+     * Additional Network Addresses
+     * @param int $interfaceid Primary network interface to query
+     * @param int $ipv IP version. Allowable values: 4 || 6, default 4
+     * @return array interface ids as ints.
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv4_additional
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv6_additional
      */
@@ -140,8 +160,9 @@ class VultrMetadata
 
 
     /**
-     * @param int $interfaceid
-     * @return bool|string
+     * Interface Network Type
+     * @param int $interfaceid  Primary network interface to query
+     * @return bool|string Network type of the specified interface.
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_network_type
      */
     public function getNicNetworkType(int $interfaceid)
@@ -150,8 +171,9 @@ class VultrMetadata
     }
 
     /**
-     * @param int $interfaceid
-     * @return bool|string
+     * Interface MAC
+     * @param int $interfaceid  Primary network interface to query
+     * @return bool|string  MAC address of the specified network interface.
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_mac
      */
     public function getNicMac(int $interfaceid)
@@ -160,8 +182,9 @@ class VultrMetadata
     }
 
     /**
-     * @param int $interfaceid
-     * @return bool|string
+     * Interface IPv4 Address
+     * @param int $interfaceid  Primary network interface to query
+     * @return bool|string  IPv4 address of the specified network interface.
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv4_address
      */
     public function getNicIpv4Address(int $interfaceid)
@@ -170,8 +193,9 @@ class VultrMetadata
     }
 
     /**
-     * @param int $interfaceid
-     * @return bool|string
+     * Interface IPv4 Gateway
+     * @param int $interfaceid  Primary network interface to query
+     * @return bool|string  IPv4 gateway of the specified network interface.
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv4_gateway
      */
     public function getNicIpv4Gateway(int $interfaceid)
@@ -180,8 +204,9 @@ class VultrMetadata
     }
 
     /**
-     * @param int $interfaceid
-     * @return bool|string
+     * Interface IPv4 Netmask
+     * @param int $interfaceid  Primary network interface to query
+     * @return bool|string  IPv4 netmask of the specified network interface.
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv4_netmask
      */
     public function getNicIpv4Netmask(int $interfaceid)
@@ -190,8 +215,9 @@ class VultrMetadata
     }
 
     /**
-     * @param int $interfaceid
-     * @return bool|string
+     * Interface IPv6 Network
+     * @param int $interfaceid  Primary network interface to query
+     * @return bool|string  IPv6 network of the specified network interface.
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv6_network
      */
     public function getNicIpv6Network(int $interfaceid)
@@ -200,8 +226,9 @@ class VultrMetadata
     }
 
     /**
-     * @param int $interfaceid
-     * @return bool|string
+     * Interface IPv6 Prefix
+     * @param int $interfaceid  Primary network interface to query
+     * @return bool|string  IPv6 prefix of the specified network interface.
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv6_prefix
      */
     public function getNicIpv6Prefix(int $interfaceid)
@@ -210,8 +237,9 @@ class VultrMetadata
     }
 
     /**
-     * @param int $primaryInterfaceid
-     * @param int $interfaceid
+     * Interface Additional IPv4 Address
+     * @param int $primaryInterfaceid  Parent network interface to query
+     * @param int $interfaceid  Child network interface to query
      * @return bool|string
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv4_additional_0_address
      */
@@ -221,8 +249,9 @@ class VultrMetadata
     }
 
     /**
-     * @param int $primaryInterfaceid
-     * @param int $interfaceid
+     * Interface Additional IPv4 Netmask
+     * @param int $primaryInterfaceid  Parent network interface to query
+     * @param int $interfaceid  Child network interface to query
      * @return bool|string
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv4_additional_0_netmask
      */
@@ -232,8 +261,9 @@ class VultrMetadata
     }
 
     /**
-     * @param int $primaryInterfaceid
-     * @param int $interfaceid
+     * Interface Additional IPv6 Network
+     * @param int $primaryInterfaceid  Parent network interface to query
+     * @param int $interfaceid  Child network interface to query
      * @return bool|string
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv6_additional_0_network
      */
@@ -243,8 +273,9 @@ class VultrMetadata
     }
 
     /**
-     * @param int $primaryInterfaceid
-     * @param int $interfaceid
+     * Interface Additional IPv6 Prefix
+     * @param int $primaryInterfaceid  Parent network interface to query
+     * @param int $interfaceid  Child network interface to query
      * @return bool|string
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv6_additional_0_prefix
      */
@@ -255,8 +286,9 @@ class VultrMetadata
 
 
     /**
-     * @param string $method
-     * @return bool|string
+     * Query API Endpoint
+     * @param string $method method portion of uri
+     * @return bool|string API result
      */
     protected function query(string $method)
     {
@@ -266,28 +298,33 @@ class VultrMetadata
     }
 
     /**
-     * @param array $headers Magic $http_response_headers set by streams http wrapper
-     * @throws ErrorException
+     * API Error Handling
+     * @param array $headers Magic $http_response_header set by streams http wrapper
+     * @throws Exception if empty response headers
+     * @throws Exception if invalid location
+     * @throws Exception if invalid HTTP method
+     * @throws Exception if internal server error
+     * @thorws Exception if service unavailable
      */
     private function isApiError(array $headers)
     {
         if (empty($headers)) {
-            throw new ErrorException("No Headers Received.  Check your connection and try again.");
+            throw new Exception("No Headers Received.  Check your connection and try again.");
         }
         $matches = [];
         preg_match('#HTTP/\d+\.\d+ (\d+)#', $headers[0], $matches);
         switch ($matches[1]) :
             case (404):
-                throw new ErrorException("Invalid location. Check the URL that you are using.");
+                throw new Exception("Invalid location. Check the URL that you are using.");
                 break;
             case (405):
-                throw new ErrorException("Invalid HTTP method. Check that the method (POST|GET) matches what the documentation indicates.");
+                throw new Exception("Invalid HTTP method. Check that the method (POST|GET) matches what the documentation indicates.");
                 break;
             case (500):
-                throw new ErrorException("Internal server error. Try again at a later time.");
+                throw new Exception("Internal server error. Try again at a later time.");
                 break;
             case (503):
-                throw new ErrorException("Service is currently unavailable. Try your request again later.");
+                throw new Exception("Service is currently unavailable. Try your request again later.");
                 break;
             default:
                 break;
@@ -295,6 +332,8 @@ class VultrMetadata
     }
 
     /**
+     * Explode List
+     * Convert index list returned by api into array
      * @param string $list Newline separated list returned by index api calls
      * @return array
      */
@@ -304,6 +343,8 @@ class VultrMetadata
     }
 
     /**
+     * Parse Nics
+     * Convert Interface lists returned by api into array of ints.
      * @param string $list Newline separated list returned by interface index api calls
      * @return array Interface Ids as ints for use in getNic... calls requiring an instance id
      */
