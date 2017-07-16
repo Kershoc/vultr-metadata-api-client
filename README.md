@@ -1,4 +1,4 @@
-#vultr-metadata-api-client
+# vultr-metadata-api-client
 
 API client for Vultr.com Metadata API
 
