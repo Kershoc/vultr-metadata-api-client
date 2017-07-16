@@ -1,5 +1,5 @@
 # vultr-metadata-api-client
-(PHP 7)
+![PHP 7+](https://img.shields.io/badge/PHP-7%2B-blue.svg?style=plastic)
 
 API client for Vultr.com Metadata API
 
