@@ -14,8 +14,11 @@ var_dump($vultrMeta->getAll()); // as Object
 echo $vultrMeta->getAllJson(); // Raw JSON from api
 ```
 
-Various methods for querying individual metadata also exist.  See class for list.
+Various methods for querying individual metadata also exist. See [docs](docs/README.md) for list.
 ```php
 echo $vultrMeta->getHostname();
 echo $vultrMeta->getInstanceId();
 ```
+
+## Documentation
+[Auto Docs](docs/README.md)
