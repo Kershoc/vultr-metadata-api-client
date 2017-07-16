@@ -199,7 +199,8 @@ BGP ASN of the peer (Vultr).
 
 **See Also:**
 
-* https://www.vultr.com/metadata/#v1_bgp_ipv4_peer_asn * https://www.vultr.com/metadata/#v1_bgp_ipv6_peer_asn 
+* https://www.vultr.com/metadata/#v1_bgp_ipv4_peer_asn 
+* https://www.vultr.com/metadata/#v1_bgp_ipv6_peer_asn 
 
 ---
 
@@ -228,7 +229,8 @@ BGP IPv4 address of the calling VM.
 
 **See Also:**
 
-* https://www.vultr.com/metadata/#v1_bgp_ipv4_peer_address * https://www.vultr.com/metadata/#v1_bgp_ipv6_peer_address 
+* https://www.vultr.com/metadata/#v1_bgp_ipv4_peer_address 
+* https://www.vultr.com/metadata/#v1_bgp_ipv6_peer_address 
 
 ---
 
@@ -339,7 +341,8 @@ interface ids as ints.
 
 **See Also:**
 
-* https://www.vultr.com/metadata/#v1_interfaces_0_ipv4_additional * https://www.vultr.com/metadata/#v1_interfaces_0_ipv6_additional 
+* https://www.vultr.com/metadata/#v1_interfaces_0_ipv4_additional 
+* https://www.vultr.com/metadata/#v1_interfaces_0_ipv6_additional 
 
 ---
 
