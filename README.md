@@ -1,4 +1,5 @@
 # vultr-metadata-api-client
+(PHP 7)
 
 API client for Vultr.com Metadata API
 
