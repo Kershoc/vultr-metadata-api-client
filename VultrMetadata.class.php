@@ -314,32 +314,21 @@ class VultrMetadata
         $matches = [];
         preg_match('#HTTP/\d+\.\d+ (\d+)#', $headers[0], $matches);
         switch ($matches[1]) :
-            case (404):
+            case 404:
                 throw new Exception("Invalid location. Check the URL that you are using.");
                 break;
-            case (405):
+            case 405:
                 throw new Exception("Invalid HTTP method. Check that the method (POST|GET) matches what the documentation indicates.");
                 break;
-            case (500):
+            case 500:
                 throw new Exception("Internal server error. Try again at a later time.");
                 break;
-            case (503):
+            case 503:
                 throw new Exception("Service is currently unavailable. Try your request again later.");
                 break;
             default:
                 break;
         endswitch;
-    }
-
-    /**
-     * Explode List
-     * Convert index list returned by api into array
-     * @param string $list Newline separated list returned by index api calls
-     * @return array
-     */
-    private function explodeList(string $list)
-    {
-        return explode("\n", $list);
     }
 
     /**
@@ -354,7 +343,7 @@ class VultrMetadata
             function ($x) {
                 return (int) trim($x, "/");
             },
-            array_diff(self::explodeList($list), [null])
+            array_diff(explode("\n", $list), [null])
         );
     }
 }
