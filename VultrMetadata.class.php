@@ -2,24 +2,32 @@
 /**
  * Vultr.com Metadata API Client
  * @package VultrMetadata
- * @version 1.0
+ * @version 1.5
  * @see https://github.com/kershoc/vultr-metadata-api-client
  * @author Symeon Quimby https://github.com/kershoc
  * @license https://opensource.org/licenses/MIT MIT
  */
-
+namespace Vultr;
 
 /**
- * Class VultrMetadata
+ * Class Metadata
  */
-class VultrMetadata
+class Metadata
 {
     /**
      * Api Endpoint
      * @var string
      * @see https://www.vultr.com/metadata/
      */
-    public $endpoint = 'http://169.254.169.254/v1';
+    private static $endpoint = 'http://169.254.169.254/v1';
+
+    /**
+     * @var array
+     * Simple in memory cache for valid api responses
+     * Key: Endpoint Method
+     * Value: API response
+     */
+    private static $cache = [];
 
 
     /**
@@ -29,7 +37,7 @@ class VultrMetadata
      */
     public function getAll()
     {
-        return json_decode($this->getAllJson());
+        return json_decode(self::getAllJson());
     }
 
     /**
@@ -292,39 +300,44 @@ class VultrMetadata
      */
     protected function query(string $method)
     {
-        $result = file_get_contents($this->endpoint . $method);
+        if($data = self::queryCache($method)){
+            return $data;
+        }
+
+        $result = file_get_contents(self::$endpoint . $method);
         self::isApiError($http_response_header);
+        self::saveToCache($method, $result);
         return $result;
     }
 
     /**
      * API Error Handling
      * @param array $headers Magic $http_response_header set by streams http wrapper
-     * @throws Exception if empty response headers
-     * @throws Exception if invalid location
-     * @throws Exception if invalid HTTP method
-     * @throws Exception if internal server error
-     * @thorws Exception if service unavailable
+     * @throws \Exception if empty response headers
+     * @throws \Exception if invalid location
+     * @throws \Exception if invalid HTTP method
+     * @throws \Exception if internal server error
+     * @thorws \Exception if service unavailable
      */
     private function isApiError(array $headers)
     {
         if (empty($headers)) {
-            throw new Exception("No Headers Received.  Check your connection and try again.");
+            throw new \Exception("No Headers Received.  Check your connection and try again.");
         }
         $matches = [];
         preg_match('#HTTP/\d+\.\d+ (\d+)#', $headers[0], $matches);
         switch ($matches[1]) :
             case 404:
-                throw new Exception("Invalid location. Check the URL that you are using.");
+                throw new \Exception("Invalid location. Check the URL that you are using.");
                 break;
             case 405:
-                throw new Exception("Invalid HTTP method. Check that the method (POST|GET) matches what the documentation indicates.");
+                throw new \Exception("Invalid HTTP method. Check that the method (POST|GET) matches what the documentation indicates.");
                 break;
             case 500:
-                throw new Exception("Internal server error. Try again at a later time.");
+                throw new \Exception("Internal server error. Try again at a later time.");
                 break;
             case 503:
-                throw new Exception("Service is currently unavailable. Try your request again later.");
+                throw new \Exception("Service is currently unavailable. Try your request again later.");
                 break;
             default:
                 break;
@@ -345,5 +358,19 @@ class VultrMetadata
             },
             array_diff(explode("\n", $list), [null])
         );
+    }
+
+
+    private function queryCache(string $method)
+    {
+        if(array_key_exists($method, self::$cache)){
+            return self::$cache[$method];
+        }
+        return false;
+    }
+
+    private function saveToCache($method, $data)
+    {
+        self::$cache[$method] = $data;
     }
 }

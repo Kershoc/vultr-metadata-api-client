@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-* [VultrMetadata](#vultrmetadata)
+* [Metadata](#vultrmetadata)
     * [getAll](#getall)
     * [getAllJson](#getalljson)
     * [getHostname](#gethostname)
@@ -27,13 +27,13 @@
     * [GetNicAdditionalIpv6Network](#getnicadditionalipv6network)
     * [GetNicAdditionalIpv6Prefix](#getnicadditionalipv6prefix)
 
-## VultrMetadata
+## \Vultr\Metadata
 
-Class VultrMetadata
+Class Metadata
 
 
 
-* Full name: \VultrMetadata
+* Full name: \Vultr\Metadata
 
 
 ### getAll
@@ -41,7 +41,7 @@ Class VultrMetadata
 All Metadata
 
 ```php
-VultrMetadata::getAll(  ): mixed
+\Vultr\Metadata::getAll(  ): mixed
 ```
 
 
@@ -64,7 +64,7 @@ Entire metadata tree converted from APIs JSON response
 All Metadata as JSON
 
 ```php
-VultrMetadata::getAllJson(  ): boolean|string
+\Vultr\Metadata::getAllJson(  ): boolean|string
 ```
 
 
@@ -87,7 +87,7 @@ Entire metadata tree as a JSON document.
 VM Hostname
 
 ```php
-VultrMetadata::getHostname(  ): boolean|string
+\Vultr\Metadata::getHostname(  ): boolean|string
 ```
 
 
@@ -110,7 +110,7 @@ Default hostname of the calling VM.
 Instance ID
 
 ```php
-VultrMetadata::getInstanceId(  ): boolean|string
+\Vultr\Metadata::getInstanceId(  ): boolean|string
 ```
 
 
@@ -133,7 +133,7 @@ Instance ID of calling VM.
 Public Keys
 
 ```php
-VultrMetadata::getPublicKeys(  ): boolean|string
+\Vultr\Metadata::getPublicKeys(  ): boolean|string
 ```
 
 
@@ -156,7 +156,7 @@ Public SSH keys associated with calling VM.
 Region Code
 
 ```php
-VultrMetadata::getRegionCode(  ): boolean|string
+\Vultr\Metadata::getRegionCode(  ): boolean|string
 ```
 
 
@@ -179,7 +179,7 @@ Region code of the calling VM.
 BGP Peer ASN
 
 ```php
-VultrMetadata::getBgpPeerAsn( integer $ipv = 4 ): boolean|string
+\Vultr\Metadata::getBgpPeerAsn( integer $ipv = 4 ): boolean|string
 ```
 
 
@@ -209,7 +209,7 @@ BGP ASN of the peer (Vultr).
 BGP Peer Address
 
 ```php
-VultrMetadata::getBgpPeerAddress( integer $ipv = 4 ): boolean|string
+\Vultr\Metadata::getBgpPeerAddress( integer $ipv = 4 ): boolean|string
 ```
 
 
@@ -239,7 +239,7 @@ BGP IPv4 address of the calling VM.
 BGP My ASN
 
 ```php
-VultrMetadata::getBgpMyAsn( integer $ipv = 4 ): boolean|string
+\Vultr\Metadata::getBgpMyAsn( integer $ipv = 4 ): boolean|string
 ```
 
 
@@ -268,7 +268,7 @@ BGP ASN of the calling VM.
 BGP My Address
 
 ```php
-VultrMetadata::getBgpMyAddress( integer $ipv = 4 ): boolean|string
+\Vultr\Metadata::getBgpMyAddress( integer $ipv = 4 ): boolean|string
 ```
 
 
@@ -297,7 +297,7 @@ BGP IP address of the calling VM.
 Network Interfaces
 
 ```php
-VultrMetadata::getNics(  ): array
+\Vultr\Metadata::getNics(  ): array
 ```
 
 
@@ -320,7 +320,7 @@ interface ids as ints.
 Additional Network Addresses
 
 ```php
-VultrMetadata::getNicsAdditional( integer $interfaceid, integer $ipv = 4 ): array
+\Vultr\Metadata::getNicsAdditional( integer $interfaceid, integer $ipv = 4 ): array
 ```
 
 
@@ -351,7 +351,7 @@ interface ids as ints.
 Interface Network Type
 
 ```php
-VultrMetadata::getNicNetworkType( integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicNetworkType( integer $interfaceid ): boolean|string
 ```
 
 
@@ -380,7 +380,7 @@ Network type of the specified interface.
 Interface MAC
 
 ```php
-VultrMetadata::getNicMac( integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicMac( integer $interfaceid ): boolean|string
 ```
 
 
@@ -409,7 +409,7 @@ MAC address of the specified network interface.
 Interface IPv4 Address
 
 ```php
-VultrMetadata::getNicIpv4Address( integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicIpv4Address( integer $interfaceid ): boolean|string
 ```
 
 
@@ -438,7 +438,7 @@ IPv4 address of the specified network interface.
 Interface IPv4 Gateway
 
 ```php
-VultrMetadata::getNicIpv4Gateway( integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicIpv4Gateway( integer $interfaceid ): boolean|string
 ```
 
 
@@ -467,7 +467,7 @@ IPv4 gateway of the specified network interface.
 Interface IPv4 Netmask
 
 ```php
-VultrMetadata::getNicIpv4Netmask( integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicIpv4Netmask( integer $interfaceid ): boolean|string
 ```
 
 
@@ -496,7 +496,7 @@ IPv4 netmask of the specified network interface.
 Interface IPv6 Network
 
 ```php
-VultrMetadata::getNicIpv6Network( integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicIpv6Network( integer $interfaceid ): boolean|string
 ```
 
 
@@ -525,7 +525,7 @@ IPv6 network of the specified network interface.
 Interface IPv6 Prefix
 
 ```php
-VultrMetadata::getNicIpv6Prefix( integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicIpv6Prefix( integer $interfaceid ): boolean|string
 ```
 
 
@@ -554,7 +554,7 @@ IPv6 prefix of the specified network interface.
 Interface Additional IPv4 Address
 
 ```php
-VultrMetadata::GetNicAdditionalIpv4Address( integer $primaryInterfaceid, integer $interfaceid ): boolean|string
+\Vultr\Metadata::GetNicAdditionalIpv4Address( integer $primaryInterfaceid, integer $interfaceid ): boolean|string
 ```
 
 
@@ -580,7 +580,7 @@ VultrMetadata::GetNicAdditionalIpv4Address( integer $primaryInterfaceid, integer
 Interface Additional IPv4 Netmask
 
 ```php
-VultrMetadata::GetNicAdditionalIpv4Netmask( integer $primaryInterfaceid, integer $interfaceid ): boolean|string
+\Vultr\Metadata::GetNicAdditionalIpv4Netmask( integer $primaryInterfaceid, integer $interfaceid ): boolean|string
 ```
 
 
@@ -606,7 +606,7 @@ VultrMetadata::GetNicAdditionalIpv4Netmask( integer $primaryInterfaceid, integer
 Interface Additional IPv6 Network
 
 ```php
-VultrMetadata::GetNicAdditionalIpv6Network( integer $primaryInterfaceid, integer $interfaceid ): boolean|string
+\Vultr\Metadata::GetNicAdditionalIpv6Network( integer $primaryInterfaceid, integer $interfaceid ): boolean|string
 ```
 
 
@@ -632,7 +632,7 @@ VultrMetadata::GetNicAdditionalIpv6Network( integer $primaryInterfaceid, integer
 Interface Additional IPv6 Prefix
 
 ```php
-VultrMetadata::GetNicAdditionalIpv6Prefix( integer $primaryInterfaceid, integer $interfaceid ): boolean|string
+\Vultr\Metadata::GetNicAdditionalIpv6Prefix( integer $primaryInterfaceid, integer $interfaceid ): boolean|string
 ```
 
 

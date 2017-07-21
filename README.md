@@ -9,15 +9,15 @@ Useful for startup or post install scripts to help with first boot setup.  Gathe
 
 Vultr.com makes the entire metadata available with a single call.
 ```php
-$vultrMeta = new VultrMetadata();
-var_dump($vultrMeta->getAll()); // as Object
-echo $vultrMeta->getAllJson(); // Raw JSON from api
+
+var_dump(\Vultr\Metadata::getAll()); // as Object
+echo \Vultr\Metadata::getAllJson(); // Raw JSON from api
 ```
 
 Various methods for querying individual metadata also exist. See [docs](docs/README.md) for list.
 ```php
-echo $vultrMeta->getHostname();
-echo $vultrMeta->getInstanceId();
+echo \Vultr\Metadata::getHostname();
+echo \Vultr\Metadata::getInstanceId();
 ```
 
 ## Documentation
