@@ -153,143 +153,143 @@ class Metadata
 
     /**
      * Additional Network Addresses
-     * @param int $interfaceid Primary network interface to query
+     * @param int $interfaceId Primary network interface to query
      * @param int $ipv IP version. Allowable values: 4 || 6, default 4
      * @return array interface ids as ints.
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv4_additional
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv6_additional
      */
-    public function getNicsAdditional(int $interfaceid, int $ipv = 4)
+    public function getNicsAdditional(int $interfaceId, int $ipv = 4)
     {
         ($ipv === 6) ?: $ipv = 4;
-        $interfaces = self::query("/interfaces/{$interfaceid}/ipv{$ipv}/additional/");
+        $interfaces = self::query("/interfaces/{$interfaceId}/ipv{$ipv}/additional/");
         return self::parseNics($interfaces);
     }
 
 
     /**
      * Interface Network Type
-     * @param int $interfaceid  Primary network interface to query
+     * @param int $interfaceId  Primary network interface to query
      * @return bool|string Network type of the specified interface.
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_network_type
      */
-    public function getNicNetworkType(int $interfaceid)
+    public function getNicNetworkType(int $interfaceId)
     {
-        return self::query("/interfaces/{$interfaceid}/network-type");
+        return self::query("/interfaces/{$interfaceId}/network-type");
     }
 
     /**
      * Interface MAC
-     * @param int $interfaceid  Primary network interface to query
+     * @param int $interfaceId  Primary network interface to query
      * @return bool|string  MAC address of the specified network interface.
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_mac
      */
-    public function getNicMac(int $interfaceid)
+    public function getNicMac(int $interfaceId)
     {
-        return self::query("/interfaces/{$interfaceid}/mac");
+        return self::query("/interfaces/{$interfaceId}/mac");
     }
 
     /**
      * Interface IPv4 Address
-     * @param int $interfaceid  Primary network interface to query
+     * @param int $interfaceId  Primary network interface to query
      * @return bool|string  IPv4 address of the specified network interface.
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv4_address
      */
-    public function getNicIpv4Address(int $interfaceid)
+    public function getNicIpv4Address(int $interfaceId)
     {
-        return self::query("/interfaces/{$interfaceid}/ipv4/address");
+        return self::query("/interfaces/{$interfaceId}/ipv4/address");
     }
 
     /**
      * Interface IPv4 Gateway
-     * @param int $interfaceid  Primary network interface to query
+     * @param int $interfaceId  Primary network interface to query
      * @return bool|string  IPv4 gateway of the specified network interface.
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv4_gateway
      */
-    public function getNicIpv4Gateway(int $interfaceid)
+    public function getNicIpv4Gateway(int $interfaceId)
     {
-        return self::query("/interfaces/{$interfaceid}/ipv4/gateway");
+        return self::query("/interfaces/{$interfaceId}/ipv4/gateway");
     }
 
     /**
      * Interface IPv4 Netmask
-     * @param int $interfaceid  Primary network interface to query
+     * @param int $interfaceId  Primary network interface to query
      * @return bool|string  IPv4 netmask of the specified network interface.
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv4_netmask
      */
-    public function getNicIpv4Netmask(int $interfaceid)
+    public function getNicIpv4Netmask(int $interfaceId)
     {
-        return self::query("/interfaces/{$interfaceid}/ipv4/netmask");
+        return self::query("/interfaces/{$interfaceId}/ipv4/netmask");
     }
 
     /**
      * Interface IPv6 Network
-     * @param int $interfaceid  Primary network interface to query
+     * @param int $interfaceId  Primary network interface to query
      * @return bool|string  IPv6 network of the specified network interface.
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv6_network
      */
-    public function getNicIpv6Network(int $interfaceid)
+    public function getNicIpv6Network(int $interfaceId)
     {
-        return self::query("/interfaces/{$interfaceid}/ipv6/network");
+        return self::query("/interfaces/{$interfaceId}/ipv6/network");
     }
 
     /**
      * Interface IPv6 Prefix
-     * @param int $interfaceid  Primary network interface to query
+     * @param int $interfaceId  Primary network interface to query
      * @return bool|string  IPv6 prefix of the specified network interface.
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv6_prefix
      */
-    public function getNicIpv6Prefix(int $interfaceid)
+    public function getNicIpv6Prefix(int $interfaceId)
     {
-        return self::query("/interfaces/{$interfaceid}/ipv6/prefix");
+        return self::query("/interfaces/{$interfaceId}/ipv6/prefix");
     }
 
     /**
      * Interface Additional IPv4 Address
-     * @param int $primaryInterfaceid  Parent network interface to query
-     * @param int $interfaceid  Child network interface to query
+     * @param int $primaryInterfaceId  Parent network interface to query
+     * @param int $interfaceId  Child network interface to query
      * @return bool|string
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv4_additional_0_address
      */
-    public function GetNicAdditionalIpv4Address(int $primaryInterfaceid, int $interfaceid)
+    public function getNicAdditionalIpv4Address(int $primaryInterfaceId, int $interfaceId)
     {
-        return self::query("/interfaces/{$primaryInterfaceid}/ipv4/additional/{$interfaceid}/address");
+        return self::query("/interfaces/{$primaryInterfaceId}/ipv4/additional/{$interfaceId}/address");
     }
 
     /**
      * Interface Additional IPv4 Netmask
-     * @param int $primaryInterfaceid  Parent network interface to query
-     * @param int $interfaceid  Child network interface to query
+     * @param int $primaryInterfaceId  Parent network interface to query
+     * @param int $interfaceId  Child network interface to query
      * @return bool|string
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv4_additional_0_netmask
      */
-    public function GetNicAdditionalIpv4Netmask(int $primaryInterfaceid, int $interfaceid)
+    public function getNicAdditionalIpv4Netmask(int $primaryInterfaceId, int $interfaceId)
     {
-        return self::query("/interfaces/{$primaryInterfaceid}/ipv4/additional/{$interfaceid}/netmask");
+        return self::query("/interfaces/{$primaryInterfaceId}/ipv4/additional/{$interfaceId}/netmask");
     }
 
     /**
      * Interface Additional IPv6 Network
-     * @param int $primaryInterfaceid  Parent network interface to query
-     * @param int $interfaceid  Child network interface to query
+     * @param int $primaryInterfaceId  Parent network interface to query
+     * @param int $interfaceId  Child network interface to query
      * @return bool|string
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv6_additional_0_network
      */
-    public function GetNicAdditionalIpv6Network(int $primaryInterfaceid, int $interfaceid)
+    public function getNicAdditionalIpv6Network(int $primaryInterfaceId, int $interfaceId)
     {
-        return self::query("/interfaces/{$primaryInterfaceid}/ipv6/additional/{$interfaceid}/network");
+        return self::query("/interfaces/{$primaryInterfaceId}/ipv6/additional/{$interfaceId}/network");
     }
 
     /**
      * Interface Additional IPv6 Prefix
-     * @param int $primaryInterfaceid  Parent network interface to query
-     * @param int $interfaceid  Child network interface to query
+     * @param int $primaryInterfaceId  Parent network interface to query
+     * @param int $interfaceId  Child network interface to query
      * @return bool|string
      * @see https://www.vultr.com/metadata/#v1_interfaces_0_ipv6_additional_0_prefix
      */
-    public function GetNicAdditionalIpv6Prefix(int $primaryInterfaceid, int $interfaceid)
+    public function getNicAdditionalIpv6Prefix(int $primaryInterfaceId, int $interfaceId)
     {
-        return self::query("/interfaces/{$primaryInterfaceid}/ipv6/additional/{$interfaceid}/prefix");
+        return self::query("/interfaces/{$primaryInterfaceId}/ipv6/additional/{$interfaceId}/prefix");
     }
 
 
@@ -317,7 +317,7 @@ class Metadata
      * @throws \Exception if invalid location
      * @throws \Exception if invalid HTTP method
      * @throws \Exception if internal server error
-     * @thorws \Exception if service unavailable
+     * @throws \Exception if service unavailable
      */
     private function isApiError(array $headers)
     {

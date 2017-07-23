@@ -22,10 +22,10 @@
     * [getNicIpv4Netmask](#getnicipv4netmask)
     * [getNicIpv6Network](#getnicipv6network)
     * [getNicIpv6Prefix](#getnicipv6prefix)
-    * [GetNicAdditionalIpv4Address](#getnicadditionalipv4address)
-    * [GetNicAdditionalIpv4Netmask](#getnicadditionalipv4netmask)
-    * [GetNicAdditionalIpv6Network](#getnicadditionalipv6network)
-    * [GetNicAdditionalIpv6Prefix](#getnicadditionalipv6prefix)
+    * [getNicAdditionalIpv4Address](#getnicadditionalipv4address)
+    * [getNicAdditionalIpv4Netmask](#getnicadditionalipv4netmask)
+    * [getNicAdditionalIpv6Network](#getnicadditionalipv6network)
+    * [getNicAdditionalIpv6Prefix](#getnicadditionalipv6prefix)
 
 ## \Vultr\Metadata
 
@@ -320,7 +320,7 @@ interface ids as ints.
 Additional Network Addresses
 
 ```php
-\Vultr\Metadata::getNicsAdditional( integer $interfaceid, integer $ipv = 4 ): array
+\Vultr\Metadata::getNicsAdditional( integer $interfaceId, integer $ipv = 4 ): array
 ```
 
 
@@ -330,7 +330,7 @@ Additional Network Addresses
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$interfaceid` | **integer** | Primary network interface to query |
+| `$interfaceId` | **integer** | Primary network interface to query |
 | `$ipv` | **integer** | IP version. Allowable values: 4 &#124;&#124; 6, default 4 |
 
 
@@ -351,7 +351,7 @@ interface ids as ints.
 Interface Network Type
 
 ```php
-\Vultr\Metadata::getNicNetworkType( integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicNetworkType( integer $interfaceId ): boolean|string
 ```
 
 
@@ -361,7 +361,7 @@ Interface Network Type
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$interfaceid` | **integer** | Primary network interface to query |
+| `$interfaceId` | **integer** | Primary network interface to query |
 
 
 **Return Value:**
@@ -380,7 +380,7 @@ Network type of the specified interface.
 Interface MAC
 
 ```php
-\Vultr\Metadata::getNicMac( integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicMac( integer $interfaceId ): boolean|string
 ```
 
 
@@ -390,7 +390,7 @@ Interface MAC
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$interfaceid` | **integer** | Primary network interface to query |
+| `$interfaceId` | **integer** | Primary network interface to query |
 
 
 **Return Value:**
@@ -409,7 +409,7 @@ MAC address of the specified network interface.
 Interface IPv4 Address
 
 ```php
-\Vultr\Metadata::getNicIpv4Address( integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicIpv4Address( integer $interfaceId ): boolean|string
 ```
 
 
@@ -419,7 +419,7 @@ Interface IPv4 Address
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$interfaceid` | **integer** | Primary network interface to query |
+| `$interfaceId` | **integer** | Primary network interface to query |
 
 
 **Return Value:**
@@ -438,7 +438,7 @@ IPv4 address of the specified network interface.
 Interface IPv4 Gateway
 
 ```php
-\Vultr\Metadata::getNicIpv4Gateway( integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicIpv4Gateway( integer $interfaceId ): boolean|string
 ```
 
 
@@ -448,7 +448,7 @@ Interface IPv4 Gateway
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$interfaceid` | **integer** | Primary network interface to query |
+| `$interfaceId` | **integer** | Primary network interface to query |
 
 
 **Return Value:**
@@ -467,7 +467,7 @@ IPv4 gateway of the specified network interface.
 Interface IPv4 Netmask
 
 ```php
-\Vultr\Metadata::getNicIpv4Netmask( integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicIpv4Netmask( integer $interfaceId ): boolean|string
 ```
 
 
@@ -477,7 +477,7 @@ Interface IPv4 Netmask
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$interfaceid` | **integer** | Primary network interface to query |
+| `$interfaceId` | **integer** | Primary network interface to query |
 
 
 **Return Value:**
@@ -496,7 +496,7 @@ IPv4 netmask of the specified network interface.
 Interface IPv6 Network
 
 ```php
-\Vultr\Metadata::getNicIpv6Network( integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicIpv6Network( integer $interfaceId ): boolean|string
 ```
 
 
@@ -506,7 +506,7 @@ Interface IPv6 Network
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$interfaceid` | **integer** | Primary network interface to query |
+| `$interfaceId` | **integer** | Primary network interface to query |
 
 
 **Return Value:**
@@ -525,7 +525,7 @@ IPv6 network of the specified network interface.
 Interface IPv6 Prefix
 
 ```php
-\Vultr\Metadata::getNicIpv6Prefix( integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicIpv6Prefix( integer $interfaceId ): boolean|string
 ```
 
 
@@ -535,7 +535,7 @@ Interface IPv6 Prefix
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$interfaceid` | **integer** | Primary network interface to query |
+| `$interfaceId` | **integer** | Primary network interface to query |
 
 
 **Return Value:**
@@ -549,12 +549,12 @@ IPv6 prefix of the specified network interface.
 
 ---
 
-### GetNicAdditionalIpv4Address
+### getNicAdditionalIpv4Address
 
 Interface Additional IPv4 Address
 
 ```php
-\Vultr\Metadata::GetNicAdditionalIpv4Address( integer $primaryInterfaceid, integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicAdditionalIpv4Address( integer $primaryInterfaceId, integer $interfaceId ): boolean|string
 ```
 
 
@@ -564,8 +564,8 @@ Interface Additional IPv4 Address
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$primaryInterfaceid` | **integer** | Parent network interface to query |
-| `$interfaceid` | **integer** | Child network interface to query |
+| `$primaryInterfaceId` | **integer** | Parent network interface to query |
+| `$interfaceId` | **integer** | Child network interface to query |
 
 
 
@@ -575,12 +575,12 @@ Interface Additional IPv4 Address
 
 ---
 
-### GetNicAdditionalIpv4Netmask
+### getNicAdditionalIpv4Netmask
 
 Interface Additional IPv4 Netmask
 
 ```php
-\Vultr\Metadata::GetNicAdditionalIpv4Netmask( integer $primaryInterfaceid, integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicAdditionalIpv4Netmask( integer $primaryInterfaceId, integer $interfaceId ): boolean|string
 ```
 
 
@@ -590,8 +590,8 @@ Interface Additional IPv4 Netmask
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$primaryInterfaceid` | **integer** | Parent network interface to query |
-| `$interfaceid` | **integer** | Child network interface to query |
+| `$primaryInterfaceId` | **integer** | Parent network interface to query |
+| `$interfaceId` | **integer** | Child network interface to query |
 
 
 
@@ -601,12 +601,12 @@ Interface Additional IPv4 Netmask
 
 ---
 
-### GetNicAdditionalIpv6Network
+### getNicAdditionalIpv6Network
 
 Interface Additional IPv6 Network
 
 ```php
-\Vultr\Metadata::GetNicAdditionalIpv6Network( integer $primaryInterfaceid, integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicAdditionalIpv6Network( integer $primaryInterfaceId, integer $interfaceId ): boolean|string
 ```
 
 
@@ -616,8 +616,8 @@ Interface Additional IPv6 Network
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$primaryInterfaceid` | **integer** | Parent network interface to query |
-| `$interfaceid` | **integer** | Child network interface to query |
+| `$primaryInterfaceId` | **integer** | Parent network interface to query |
+| `$interfaceId` | **integer** | Child network interface to query |
 
 
 
@@ -627,12 +627,12 @@ Interface Additional IPv6 Network
 
 ---
 
-### GetNicAdditionalIpv6Prefix
+### getNicAdditionalIpv6Prefix
 
 Interface Additional IPv6 Prefix
 
 ```php
-\Vultr\Metadata::GetNicAdditionalIpv6Prefix( integer $primaryInterfaceid, integer $interfaceid ): boolean|string
+\Vultr\Metadata::getNicAdditionalIpv6Prefix( integer $primaryInterfaceId, integer $interfaceId ): boolean|string
 ```
 
 
@@ -642,8 +642,8 @@ Interface Additional IPv6 Prefix
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$primaryInterfaceid` | **integer** | Parent network interface to query |
-| `$interfaceid` | **integer** | Child network interface to query |
+| `$primaryInterfaceId` | **integer** | Parent network interface to query |
+| `$interfaceId` | **integer** | Child network interface to query |
 
 
 
